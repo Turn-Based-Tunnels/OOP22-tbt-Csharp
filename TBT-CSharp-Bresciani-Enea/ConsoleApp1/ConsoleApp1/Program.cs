@@ -201,6 +201,7 @@ namespace ConsoleApp1
         }
 
         static bool DictionaryEquals<TKey, TValue>(Dictionary<TKey, TValue> dict1, Dictionary<TKey, TValue> dict2)
+            where TKey : notnull
         {
             // Verifica che le due mappe siano uguali
             if (dict1.Count != dict2.Count)
@@ -208,7 +209,8 @@ namespace ConsoleApp1
 
             foreach (var pair in dict1)
             {
-                if (!dict2.TryGetValue(pair.Key, out var value) || !value.Equals(pair.Value))
+                
+                if (!dict2.TryGetValue(pair.Key, out var value) || value == null ||!value.Equals(pair.Value))
                     return false;
             }
 
