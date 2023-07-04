@@ -43,7 +43,7 @@ namespace Dummy.Impl
 
         public List<Status> GetStatuses()
         {
-            throw new NotImplementedException();
+            return this.Status;
         }
 
         public int GetWeaponAttack()
